@@ -12,3 +12,5 @@ const plant = new Plant("green");
 
 b.addObject(hammer);
 b.addObject(plant);
+
+await b.getFile("http://skies.esac.esa.int/Herschel/normalized/PACS_hips160//Norder8/Dir40000/Npix47180.fits").then((res) => console.log(res) )
