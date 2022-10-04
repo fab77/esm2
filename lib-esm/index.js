@@ -1,9 +1,7 @@
-// import {Hammer} from 'esm1/lib-esm/Hammer.js';
-// import {Box} from 'esm1/lib-esm/Box-node.js';
-// import {Hammer} from 'esm1/lib-esm/index-node.js';
-// import {Box} from 'esm1/lib-esm/index-node.js';
 import { Hammer } from 'esm1';
 import { Box } from 'esm1';
+// import {Hammer} from '../../esm1/src/Hammer.js';
+// import {Box} from '../../esm1/src/Box-node.js';
 export class Interop {
     constructor() {
     }

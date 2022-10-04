@@ -1,7 +1,7 @@
 import webpack from "webpack";
 import path from 'path';
 import { fileURLToPath } from 'url';
-import nodeExternals from 'webpack-node-externals';
+// import nodeExternals from 'webpack-node-externals';
 
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
@@ -20,28 +20,30 @@ var config = {
     'esm2': [PATHS.entryPoint],
     'esm2.min': [PATHS.entryPoint]
   },
-  target: 'web',
+  // target: ['web', 'es6'],
+  target: ['web'],
   // externals: [
   //   nodeExternals({
   //     importType: 'umd'
   //   })
   // ],
   externals: { 
-    "node:fs": "{}",
-    "node:zlib": "{}",
-    "node:util": "{}",
-    "node:url": "{}",
-    "node:stream": "{}",
-    "node:stream/web": "{}",
-    "node:process": "{}",
-    "node:path": "{}",
-    "node:net": "{}",
-    "node:http": "{}",
-    "node:https": "{}",
-    "node:buffer": "{}",
-    // "esm1": require.resolve('esm1')
+    // "node:fs": "{}",
+    // "node:zlib": "{}",
+    // "node:util": "{}",
+    // "node:url": "{}",
+    // "node:stream": "{}",
+    // "node:stream/web": "{}",
+    // "node:process": "{}",
+    // "node:path": "{}",
+    // "node:net": "{}",
+    // "node:http": "{}",
+    // "node:https": "{}",
+    // "node:buffer": "{}",
+    // "worker_threads": "{}",
+    // // "esm1": require.resolve('esm1')
   },
-  externalsType: 'umd',
+  // externalsType: 'umd',
   output: {
     path: PATHS.bundles,
     // filename: '[name].js',
@@ -56,22 +58,23 @@ var config = {
       '.js': ['.ts', '.js'],
       '.mjs': ['.mts', '.mjs']
     },
-    fallback: {
-      "fs": false,
-      "tls": false,
-      "net": false,
-      "path": false,
-      "zlib": false,
-      "http": false,
-      "https": false,
-      "stream": false,
-      "crypto": false,
-      "url": false,
-      "util": false,
-      "buffer": false,
-    },
+    // fallback: {
+    //   "fs": false,
+    //   "tls": false,
+    //   "net": false,
+    //   "path": false,
+    //   "zlib": false,
+    //   "http": false,
+    //   "https": false,
+    //   "stream": false,
+    //   "crypto": false,
+    //   "url": false,
+    //   "util": false,
+    //   "buffer": false,
+    // },
+    
   },
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   plugins: [
     // new webpack.ProvidePlugin({
     //   process: "process/browser",
@@ -90,12 +93,13 @@ var config = {
         use: 'ts-loader',
         exclude: ["/node_modules/"],
 
-      }, {
-        test: /\.ts/,
-        resolve: {
-          fullySpecified: false
-        }
-      },
+      }, 
+      // {
+      //   test: /\.ts/,
+      //   resolve: {
+      //     fullySpecified: false
+      //   }
+      // },
     ],
 
 
